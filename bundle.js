@@ -70,9 +70,9 @@ module.exports=require("./dist/cjs/handlebars.runtime").default;
 module.exports=require("handlebars/runtime").default;
 },{"handlebars/runtime":22}],24:[function(require,module,exports){
 function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"function"==typeof o&&"[object RegExp]"!==t||"undefined"!=typeof window&&(o===window.setTimeout||o===window.alert||o===window.confirm||o===window.prompt)}module.exports=isFunction;var toString=Object.prototype.toString;
-
 },{}],25:[function(require,module,exports){
 var trim=require("trim"),forEach=require("for-each"),isArray=function(r){return"[object Array]"===Object.prototype.toString.call(r)};module.exports=function(r){if(!r)return{};var e={};return forEach(trim(r).split("\n"),function(r){var t=r.indexOf(":"),i=trim(r.slice(0,t)).toLowerCase(),o=trim(r.slice(t+1));"undefined"==typeof e[i]?e[i]=o:isArray(e[i])?e[i].push(o):e[i]=[e[i],o]}),e};
+
 },{"for-each":2,"trim":26}],26:[function(require,module,exports){
 function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,exports.left=function(r){return r.replace(/^\s*/,"")},exports.right=function(r){return r.replace(/\s*$/,"")};
 
@@ -82,5 +82,5 @@ function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,e
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],29:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,a,l,n,s){var r,i=null!=a?a:{},m=l.helperMissing,p="function",t=e.escapeExpression;return"<h1>Hello "+t((r=null!=(r=l.name||(null!=a?a.name:a))?r:m,typeof r===p?r.call(i,{name:"name",hash:{},data:s}):r))+"!</h1>\n\n<p>"+t((r=null!=(r=l.iss||(null!=a?a.iss:a))?r:m,typeof r===p?r.call(i,{name:"iss",hash:{},data:s}):r))+"</p>\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,n,l,a,r){var m,s,i=e.escapeExpression;return"<h1>Hello "+i((s=null!=(s=l.name||(null!=n?n.name:n))?s:l.helperMissing,"function"==typeof s?s.call(null!=n?n:{},{name:"name",hash:{},data:r}):s))+"!</h1>\n\n<p>"+i(e.lambda(null!=(m=null!=n?n.iss:n)?m.name:m,n))+"</p>\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
