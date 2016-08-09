@@ -9,10 +9,14 @@ xhr.get(endpoint, function (err, data) {
   }
 
   // In case you're curious
-  console.log(data.body) // FYI: data.body is a string
-  var iss = data.body.name
+  // console.log(JSON.parse(data.body).name) // FYI: data.body is a string
+  var data = JSON.parse(data.body)
+  var stationName = data.name.toUpperCase()
+  var latitude = data.latitude
+  var longitude = data.longitude
+  var altitude = data.altitude
 
   // Replace 'Space' below with the response
   var target = document.getElementsByTagName('main')[0]
-  target.innerHTML = greeting({name: 'Space', iss: iss})
+  target.innerHTML = greeting({name: 'Space', stationName: stationName, latitude: latitude, longitude: longitude, altitude: altitude})
 })
